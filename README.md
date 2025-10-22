@@ -1,324 +1,178 @@
-\# Requirements Analyzer 🔍
+# AI Impact Predictor 🔍
 
+An AI-powered requirements analysis system that intelligently classifies, analyzes dependencies, detects impacts, and summarizes software requirements using state-of-the-art machine learning models.
 
+## Features ✨
 
-An AI-powered requirements analysis system that uses 5 state-of-the-art HuggingFace models to classify, analyze dependencies, detect impacts, and summarize software requirements.
+- **Requirement Classification**: Automatically categorize requirements (Functional, Non-Functional, Performance, Security, Usability)
+- **Dependency Detection**: Find relationships between requirements using advanced embeddings
+- **Impact Analysis**: Analyze cascading impacts of requirement changes using financial impact models
+- **Smart Summarization**: Generate concise summaries of multiple requirements
+- **Code Analysis**: Analyze code snippets and provide suggestions
 
+## Tech Stack 🛠️
 
+- **Backend**: FastAPI + Python
+- **AI/ML**: PyTorch + Transformers (HuggingFace models)
+- **Database**: SQLAlchemy + SQLite
+- **File Processing**: Pandas, OpenPyXL
+- **Frontend**: HTML/JavaScript (basic test interface included)
 
-\## Features ✨
+## Quick Start 🚀
 
-
-
-\- \*\*Requirement Classification\*\*: Automatically categorize requirements (Functional, Non-Functional, Performance, Security, Usability)
-
-\- \*\*Dependency Detection\*\*: Find relationships between requirements using advanced embeddings
-
-\- \*\*Impact Analysis\*\*: Analyze cascading impacts of requirement changes using financial impact models
-
-\- \*\*Smart Summarization\*\*: Generate concise summaries of multiple requirements
-
-\- \*\*Code Analysis\*\*: Analyze code snippets (if applicable)
-
-
-
-\## Tech Stack 🛠️
-
-
-
-\- \*\*Backend\*\*: FastAPI + Python
-
-\- \*\*AI/ML\*\*: PyTorch + Transformers (5 HuggingFace models)
-
-\- \*\*Database\*\*: SQLAlchemy + SQLite
-
-\- \*\*File Processing\*\*: Pandas, OpenPyXL
-
-
-
-\## Quick Start 🚀
-
-
-
-\### 1. Clone the Repository
-
+### 1. Clone the Repository
 ```bash
-
-git clone <your-repo-url>
-
-cd requirements-analyzer
-
+git clone https://github.com/Gstman420/ai-impact-predictor.git
+cd ai-impact-predictor
 ```
 
-
-
-\### 2. Create Virtual Environment
-
+### 2. Create Virtual Environment
 ```bash
-
 python -m venv venv
 
+# Windows
+venv\Scripts\activate
 
-
-\# Windows
-
-venv\\Scripts\\activate
-
-
-
-\# Linux/Mac
-
+# Linux/Mac
 source venv/bin/activate
-
 ```
 
-
-
-\### 3. Install Dependencies
-
+### 3. Install Dependencies
 ```bash
-
 pip install -r requirements.txt
-
 ```
 
+### 4. Setup Models
+See [MODEL_SETUP.md](MODEL_SETUP.md) for detailed model setup instructions.
 
+Models will auto-download on first run (requires ~25 GB storage and 20-40 min).
 
-\### 4. Setup Models
-
-See \[MODEL\_SETUP.md](MODEL\_SETUP.md) for detailed model setup instructions.
-
-
-
-Models will auto-download on first run (requires ~20 GB storage and 15-30 min).
-
-
-
-\### 5. Run the Application
-
+### 5. Run the Application
 ```bash
-
 python main.py
-
 ```
-
-
 
 The API will be available at `http://localhost:8000`
 
+### 6. Test Frontend (Optional)
+Open `test_frontend_connection.html` in your browser to test the API endpoints.
 
+**Note**: Full frontend interface is under development and will be added in future updates.
 
-\## Project Structure 📁
-
-
+## Project Structure 📁
 
 ```
-
-requirements-analyzer/
-
-├── ai\_engine/          # AI model loading logic
-
+ai-impact-predictor/
+├── ai_engine/          # AI model loading logic
 ├── services/           # Business logic (AI service, impact analysis)
-
 ├── models/             # Data models and schemas
-
 ├── routes/             # API endpoints
-
 ├── database/           # Database files (not in git)
-
 ├── uploads/            # Uploaded files (not in git)
-
 ├── config.py           # Configuration
-
 ├── main.py             # Application entry point
-
-└── requirements.txt    # Python dependencies
-
+├── requirements.txt    # Python dependencies
+└── test_frontend_connection.html  # Basic frontend test interface
 ```
 
+## API Endpoints 📡
 
+- `POST /analyze/classify` - Classify requirements
+- `POST /analyze/dependencies` - Find requirement dependencies
+- `POST /analyze/impact` - Analyze impact of changes
+- `POST /analyze/summarize` - Generate summaries
+- `POST /analyze/batch` - Complete batch analysis
 
-\## API Endpoints 📡
+## AI Models Used 🤖
 
+This project uses multiple pre-trained models from HuggingFace:
+- **Requirement Classifier** (440 MB)
+- **Qwen3 Embedder** (16 GB)
+- **BART Summarizer** (1.6 GB)
+- **Financial Impact Analyzer** (500 MB)
+- **StarCoder2 Code Analyzer** (7 GB)
 
+**Total Size**: ~25 GB
 
-\- `POST /analyze/classify` - Classify requirements
+See [MODEL_SETUP.md](MODEL_SETUP.md) for complete details.
 
-\- `POST /analyze/dependencies` - Find requirement dependencies
+## System Requirements 💻
 
-\- `POST /analyze/impact` - Analyze impact of changes
+- **RAM**: 32 GB recommended (minimum 16 GB)
+- **Storage**: 25+ GB for models
+- **GPU**: CUDA GPU recommended (CPU fallback available)
+- **Python**: 3.8+
 
-\- `POST /analyze/summarize` - Generate summaries
-
-\- `POST /analyze/batch` - Complete batch analysis
-
-
-
-\## Models Used 🤖
-
-
-
-This project uses 5 pre-trained models:
-
-1\. \*\*Requirement Classifier\*\* (440 MB)
-
-2\. \*\*Qwen3 Embedder\*\* (16 GB)
-
-3\. \*\*M365 Summarizer\*\* (1.6 GB)
-
-4\. \*\*Financial Impact Analyzer\*\* (500 MB)
-
-5\. \*\*Code Analyzer\*\* (Variable)
-
-
-
-\*\*Total Size\*\*: ~20 GB
-
-
-
-See \[MODEL\_SETUP.md](MODEL\_SETUP.md) for details.
-
-
-
-\## System Requirements 💻
-
-
-
-\- \*\*RAM\*\*: 32 GB recommended (minimum 16 GB)
-
-\- \*\*Storage\*\*: 20+ GB for models
-
-\- \*\*GPU\*\*: CUDA GPU recommended (CPU fallback available)
-
-\- \*\*Python\*\*: 3.8+
-
-
-
-\## Configuration ⚙️
-
-
+## Configuration ⚙️
 
 Edit `config.py` to customize:
+- Upload directory
+- Database location
+- File size limits
+- Similarity thresholds
+- Impact analysis depth
 
-\- Upload directory
+## Development 👨‍💻
 
-\- Database location
-
-\- File size limits
-
-\- Similarity thresholds
-
-\- Impact analysis depth
-
-
-
-\## Development 👨‍💻
-
-
-
-\### Running Tests
-
+### Running Tests
 ```bash
-
-python test\_backend.py
-
+python test_backend.py
 ```
 
-
-
-\### Code Style
-
+### Code Style
 ```bash
-
 black .
-
 flake8 .
-
 ```
 
+## Troubleshooting 🔧
 
+**Out of Memory?**
+- Reduce batch size
+- Use CPU mode
+- Close other applications
 
-\## Troubleshooting 🔧
+**Models not downloading?**
+- Check internet connection
+- Verify HuggingFace Hub access
+- Try manual download
 
+**Slow performance?**
+- Enable GPU (CUDA)
+- Reduce max impact depth
+- Use smaller batch sizes
 
+## Roadmap 🗺️
 
-\*\*Out of Memory?\*\*
+- [ ] Complete frontend interface with modern UI
+- [ ] Real-time collaboration features
+- [ ] Advanced visualization dashboards
+- [ ] Model fine-tuning capabilities
+- [ ] Docker containerization
+- [ ] API authentication
 
-\- Reduce batch size
+## Contributing 🤝
 
-\- Use CPU mode
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-\- Close other applications
+## License 📄
 
+MIT License (or specify your license)
 
+## Acknowledgments 🙏
 
-\*\*Models not downloading?\*\*
+- HuggingFace for pre-trained models
+- FastAPI framework
+- PyTorch and Transformers library
 
-\- Check internet connection
+## Contact 📧
 
-\- Verify HuggingFace Hub access
-
-\- Try manual download
-
-
-
-\*\*Slow performance?\*\*
-
-\- Enable GPU (CUDA)
-
-\- Reduce max impact depth
-
-\- Use smaller batch sizes
-
-
-
-\## Contributing 🤝
-
-
-
-1\. Fork the repository
-
-2\. Create a feature branch
-
-3\. Commit your changes
-
-4\. Push to the branch
-
-5\. Open a Pull Request
-
-
-
-\## License 📄
-
-
-
-\[Your License Here]
-
-
-
-\## Acknowledgments 🙏
-
-
-
-\- HuggingFace for pre-trained models
-
-\- FastAPI framework
-
-\- PyTorch and Transformers library
-
-
-
-\## Contact 📧
-
-
-
-\[Your contact information]
-
-
+GitHub: [@Gstman420](https://github.com/Gstman420)
 
 ---
 
-
-
-\*\*Note\*\*: This project requires downloading ~20 GB of AI models. See MODEL\_SETUP.md for setup instructions.
-
+**Note**: This project requires downloading ~25 GB of AI models. See [MODEL_SETUP.md](MODEL_SETUP.md) for setup instructions.
