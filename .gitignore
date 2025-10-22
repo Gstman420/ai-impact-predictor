@@ -73,7 +73,7 @@ logs/
 .env.*.local
 
 # Test files
-test_*.html
+
 demo_project/
 
 # OS
